@@ -1,0 +1,77 @@
+.hero-box{
+   padding: 70px;
+   justify-content: space-between;
+   margin-bottom: 50px;
+   animation: fade-in 0.5s ease-in-out;
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.title-box{
+    row-gap: 10px;
+    align-content: center;
+    width: 35vw;
+    padding: 15px;
+    animation: lefttoright 0.5s ease-in-out;
+}
+@keyframes lefttoright {
+    from {
+        transform: translateX(-50px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+.title{
+    font-size: 75px;
+    font-family: var(--heading);
+    display: flex;
+    align-items: baseline;
+    column-gap: 10px;
+    text-shadow: 0px 1px 4px var(--text-color);
+}
+
+.totle svg{
+    transition: all 0.2s ease-in-out;
+}
+
+.title svg:hover{
+    scale: 1.1;
+}
+video{
+    width: 45vw;
+    object-fit: contain;
+}
+.video-box{
+    box-shadow: 2px 2px 20px 2px var(--text-color);
+    transition: all 0.4s ease-in-out;
+    animation: righttoleft 0.5s ease-in-out;
+}
+@keyframes righttoleft {
+    from {
+        transform: translateX(50px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+.two-liner{
+    display: grid;
+    font-size: 20px;
+    font-family: var(--content);
+    letter-spacing: 1px;
+    row-gap: 10px;
+    font-weight: 500;
+}
+
+.two-liner li{
+    align-items: center;
+    display: flex;
+    column-gap: 10px;
+}

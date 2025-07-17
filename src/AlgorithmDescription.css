@@ -1,0 +1,153 @@
+.desc-bonus{
+    padding: 4px 15px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.description-text{
+    padding-right: 30px;
+    width: 60%;
+}
+
+.bonus-fact{
+    padding: 15px;
+    border: 1px solid rgb(247, 212, 99);
+    border-radius: 12px;
+    width: 25%;
+    height: 170px;
+    box-shadow: 0px 0px 5px orange;
+    background: linear-gradient(to right, rgba(64, 165, 140, 0.422), rgb(90, 236, 221));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bonus-fact p{
+    padding-bottom: 5px;
+}
+.bonus-fact svg{
+    width: 75px;
+    height: 75px;
+    position: relative;
+    top: -110px;
+    left: -260px;
+    filter: drop-shadow(0px 0px 25px rgb(255, 74, 24));
+}
+
+.code-complexity{
+    padding: 35px 105px 35px 55px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.codes{
+    width: 45vw;
+    height: 70vh;
+    box-shadow: 2px 2px 20px 2px cyan;
+    border-radius: 12px;
+    border: 3px solid aqua;
+}
+
+.nav-btns{
+    border-bottom: 3px solid var(--text-color);
+}
+
+.lang-btn{
+    padding: 8px 15px;
+    border-right: 3px solid var(--text-color);
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    font-size: 25px;
+    font-weight: 900;
+    text-shadow: 0px 0px 5px black;
+    opacity: 0.8;
+}
+
+.lang-btn:hover{
+    opacity: 1;
+}
+
+.cpp-btn{
+    border-top-left-radius: 10px;
+    background-color: rgb(17, 166, 246);
+    color: white;
+}
+
+.js-btn{
+    background-color: rgb(254, 218, 11);
+    color: white;
+}
+
+.java-btn{
+    background-color: rgb(139, 69, 19);
+    color: white;
+}
+
+.py-btn{
+    background-color: rgb(50, 150, 255);
+    color: white;
+}
+
+.code{
+    padding: 20px;
+    font-family: var(--code);
+    font-weight: 400;
+}
+
+.complexity{
+    padding: 25px;
+    border: 3px solid var(--text-color);
+    row-gap: 15px;
+    box-shadow: 2px 2px 20px 2px cyan;
+    border-radius: 12px;
+    border: 3px solid aqua;
+}
+
+.complexity li{
+    display: flex;
+    letter-spacing: 0.5px;
+    font-family: var(--content);
+    font-size: large;
+    padding: 5px 35px;
+}
+
+.time{
+    height: 67px;
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+    font-family: var(--buttons);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.time svg{
+    filter: drop-shadow(0px 0px 15px brown);
+}
+
+
+.space{
+    height: 67px;
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+    font-family: var(--buttons);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.space svg{
+    filter: drop-shadow(0px 0px 15px rgb(14, 212, 234));
+}
+
+
+.question-list{
+    margin-left: 35px;
+    row-gap: 10px;
+    font-size: large;
+}
+
+.question-list li{
+    display: flex;
+    column-gap: 10px;
+}
+
