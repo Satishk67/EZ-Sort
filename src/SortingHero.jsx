@@ -24,6 +24,12 @@ function SortingHero(props) {
       () => Math.floor(Math.random() * 0.95 * (Height - 200)) + 200
     );
   };
+
+  const colorArray = [array.length];
+  for (let i = 0; i < array.length; i++) {
+    colorArray[i] = `hsla(${Math.random() * 360}, 95%, 40%, 0.85)`;
+  }
+
   // Initialize array on mount or when arrsize changes
   useEffect(() => {
     setArray(generateRandomArray(arrsize));
@@ -184,7 +190,7 @@ function SortingHero(props) {
         </div>
       </div>
       <div className="sort-visual-box" data-aos="fade-up">
-        <Sketch Size={arrsize} arr={array} />
+        <Sketch Size={arrsize} arr={array} color={colorArray}/>
       </div>
     </section>
   );

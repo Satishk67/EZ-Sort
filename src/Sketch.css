@@ -9,7 +9,6 @@
     box-sizing: border-box;
     stroke-width: 1px;
     stroke: var(--text-color);
-    fill: rgba(252, 145, 45, 0.96);
 }
 
 .bar:hover{
