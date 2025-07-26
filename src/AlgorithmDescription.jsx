@@ -331,7 +331,7 @@ function AlgorithmDescription(props) {
 
         <div className="complexity grid" data-aos="fade-in">
           <div className="time-complexity grid">
-            <p className="time" data-aos="slide-left">
+            <p className="time" data-aos="fade-up">
               {clock} Time Complexity :
             </p>
             <ul className="grid">
@@ -348,7 +348,7 @@ function AlgorithmDescription(props) {
             </ul>
           </div>
           <div className="space-complexity">
-            <p className="space" data-aos="slide-left">
+            <p className="space" data-aos="fade-up">
               {suitcase} Space Complexity :{" "}
             </p>
             <li data-aos="fade-up">
