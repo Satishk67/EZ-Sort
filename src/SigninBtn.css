@@ -1,0 +1,22 @@
+
+.login-btn {
+    font-size: large;
+    background-color: rgb(252, 232, 5);
+    font-family: var(--buttons);
+    border: var(--text-color);
+    padding: 4px 15px;
+    color: black;
+    font-weight: 500;
+    border: 2px solid rgb(10, 10, 10);
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity: 0.9;
+    z-index: 0;
+  }
+  
+  .login-btn:hover {
+    transform: scale(1.05);
+    opacity: 1;
+  }

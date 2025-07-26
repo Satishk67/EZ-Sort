@@ -1,0 +1,51 @@
+
+.practice-questions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.practice-questions .foreground{
+    background: none;
+    border-radius: 50px;
+}
+
+.question-list{
+    margin-left: 35px;
+    row-gap: 10px;
+    font-size: large;
+    font-weight: 800;
+}
+
+.problemrow{
+    display: flex;
+    column-gap: 20%;
+    height: 40px;
+    padding: 5px;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.problemrow .name{
+    width: 400px;
+    box-sizing: border-box;
+}
+
+.problemrow a{
+    width: 80px ;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.problemrow .practice-link:hover{    
+    border-bottom: 2px solid var(--text-color);
+    letter-spacing: 1px;
+    color: rgb(108, 255, 3);
+}
+
+.problemrow .read:hover{    
+    border-bottom: 2px solid var(--text-color);
+    letter-spacing: 1px;
+    color: rgb(255, 217, 0);
+}

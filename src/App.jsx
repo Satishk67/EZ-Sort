@@ -12,6 +12,12 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 function App() {
+
+  const [isLogin, setLogin] = useState(false);
+  const setlogin = () => {
+    setLogin(true);
+  };
+
   useEffect(() => { AOS.init(); }, []);
   AOS.init({duration: 1000, delay: 5000});
 
@@ -30,9 +36,9 @@ function App() {
 
   return (
     <>
-    <Navbar toggleSidebar={toggleSidebar} sidebarRef={sidebarRef} whichSort={setSortName}/>
+    <Navbar toggleSidebar={toggleSidebar} sidebarRef={sidebarRef} whichSort={setSortName} login={setlogin} islogin={isLogin}/>
     {!Sort ? <Hero/> : <SortingHero sortName={Sort}/>}
-    {!Sort ? <Details toggleSidebar={toggleSidebar} setSortName={setSortName}/> : <AlgorithmDescription sortName={Sort}/>}
+    {!Sort ? <Details toggleSidebar={toggleSidebar} setSortName={setSortName}/> : <AlgorithmDescription sortName={Sort} login={setlogin} islogin={isLogin}/>}
     <Contact/>
     </>
   )

@@ -1,7 +1,11 @@
 import "./AlgorithmDescription.css";
 import "./Details.css";
-// algorithm name should be passed
+import Code from "./Code";
+import PracticeQuestions from "./PracticeQuestions";
+import { useState } from "react";
+
 function AlgorithmDescription(props) {
+
   const bullet = (
     <svg
       width="28px"
@@ -31,64 +35,6 @@ function AlgorithmDescription(props) {
             <path d="M34,35a2,2,0,0,1-1.3-3.5L41,24l-8.3-7.5a2,2,0,1,1,2.6-3l10,9a2,2,0,0,1,0,3l-10,9A1.9,1.9,0,0,1,34,35Z"></path>{" "}
           </g>{" "}
         </g>{" "}
-      </g>
-    </svg>
-  );
-
-  const bulb = (
-    <svg viewBox="7 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-      <g
-        id="SVGRepo_tracerCarrier"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      ></g>
-      <g id="SVGRepo_iconCarrier">
-        {" "}
-        <path
-          d="M22.63 4.81C21.7696 3.92124 20.7393 3.2145 19.6003 2.73177C18.4614 2.24905 17.237 2.0002 16 2C13.6131 2 11.3239 2.94821 9.63604 4.63604C7.94821 6.32387 7 8.61305 7 11C7.08565 12.681 7.56521 14.3184 8.4 15.78C8.66 16.32 8.9 16.84 9.1 17.37L11.1 22.37C11.1721 22.5514 11.2958 22.7077 11.4557 22.8197C11.6157 22.9316 11.8049 22.9943 12 23H20C20.2003 23.0002 20.396 22.9402 20.5618 22.8279C20.7276 22.7156 20.8559 22.5561 20.93 22.37L22.93 17.37C23.15 16.8 23.39 16.27 23.63 15.75C24.4114 14.2789 24.878 12.6613 25 11C25.0449 9.86149 24.8579 8.72574 24.4505 7.66167C24.0431 6.5976 23.4237 5.62742 22.63 4.81Z"
-          fill="#ffe70f"
-        ></path>{" "}
-        <path
-          d="M20 24H12C11.7348 24 11.4804 24.1054 11.2929 24.2929C11.1054 24.4804 11 24.7348 11 25V28C10.9996 28.1874 11.0519 28.3712 11.1509 28.5303C11.25 28.6894 11.3917 28.8175 11.56 28.9L13.56 29.9C13.6971 29.9664 13.8476 30.0006 14 30H18C18.1557 30.0022 18.3098 29.9679 18.45 29.9L20.45 28.9C20.6164 28.8161 20.7561 28.6874 20.8533 28.5284C20.9505 28.3694 21.0013 28.1864 21 28V25C21 24.7348 20.8946 24.4804 20.7071 24.2929C20.5196 24.1054 20.2652 24 20 24Z"
-          fill="#ee3f3f"
-        ></path>{" "}
-        <path
-          d="M20 14H12C11.8301 14.0003 11.6628 13.9574 11.5141 13.8751C11.3654 13.7929 11.2401 13.6741 11.15 13.53C11.0622 13.378 11.016 13.2055 11.016 13.03C11.016 12.8545 11.0622 12.682 11.15 12.53L13.15 8.53C13.2326 8.37471 13.3546 8.24395 13.5038 8.1509C13.6531 8.05785 13.8242 8.0058 14 8H18C18.2652 8 18.5196 8.10536 18.7071 8.29289C18.8946 8.48043 19 8.73478 19 9C19 9.26522 18.8946 9.51957 18.7071 9.70711C18.5196 9.89464 18.2652 10 18 10H14.65L13.65 12H20C20.2652 12 20.5196 12.1054 20.7071 12.2929C20.8946 12.4804 21 12.7348 21 13C21 13.2652 20.8946 13.5196 20.7071 13.7071C20.5196 13.8946 20.2652 14 20 14Z"
-          fill="#ec1313"
-        ></path>{" "}
-        <path
-          d="M16 18C15.7348 18 15.4804 17.8946 15.2929 17.7071C15.1054 17.5196 15 17.2652 15 17V13C15 12.7348 15.1054 12.4804 15.2929 12.2929C15.4804 12.1054 15.7348 12 16 12C16.2652 12 16.5196 12.1054 16.7071 12.2929C16.8946 12.4804 17 12.7348 17 13V17C17 17.2652 16.8946 17.5196 16.7071 17.7071C16.5196 17.8946 16.2652 18 16 18Z"
-          fill="#ec1313"
-        ></path>{" "}
-        <path
-          d="M16 2C13.6131 2 11.3239 2.94821 9.63604 4.63604C7.94821 6.32387 7 8.61305 7 11C7.08237 12.6744 7.55128 14.3071 8.37 15.77C8.63072 16.2909 8.86436 16.825 9.07 17.37L11.07 22.37C11.1441 22.5561 11.2724 22.7156 11.4382 22.8279C11.604 22.9402 11.7997 23.0002 12 23H16V2Z"
-          fill="#ffe70f"
-        ></path>{" "}
-        <path
-          d="M12 24C11.7348 24 11.4804 24.1054 11.2929 24.2929C11.1054 24.4804 11 24.7348 11 25V28C11.0006 28.1847 11.0522 28.3656 11.1493 28.5227C11.2464 28.6798 11.3851 28.8069 11.55 28.89L13.55 29.89C13.6893 29.9614 13.8435 29.9991 14 30H16V24H12Z"
-          fill="#f52d0a"
-        ></path>{" "}
-        <path
-          d="M18 10C18.2652 10 18.5196 9.89464 18.7071 9.70711C18.8946 9.51957 19 9.26522 19 9C19 8.73478 18.8946 8.48043 18.7071 8.29289C18.5196 8.10536 18.2652 8 18 8H16V10H18Z"
-          fill="#ee3f3f"
-        ></path>{" "}
-        <path
-          d="M20 12H16V14H20C20.2652 14 20.5196 13.8946 20.7071 13.7071C20.8946 13.5196 21 13.2652 21 13C21 12.7348 20.8946 12.4804 20.7071 12.2929C20.5196 12.1054 20.2652 12 20 12Z"
-          fill="#ee3f3f"
-        ></path>{" "}
-        <path
-          d="M13.6 12L14.6 10H16V8.00002H14C13.8136 7.99873 13.6306 8.04954 13.4716 8.14672C13.3126 8.2439 13.1839 8.38359 13.1 8.55002L11.1 12.55C11.0197 12.7064 10.9821 12.8812 10.9908 13.0567C10.9996 13.2323 11.0545 13.4024 11.15 13.55C11.2424 13.6904 11.3688 13.8053 11.5173 13.8839C11.6659 13.9626 11.8319 14.0025 12 14H16V12H13.6Z"
-          fill="#f52d0a"
-        ></path>{" "}
-        <path
-          d="M15 13V17C15 17.2652 15.1054 17.5196 15.2929 17.7071C15.4804 17.8946 15.7348 18 16 18V12C15.7348 12 15.4804 12.1054 15.2929 12.2929C15.1054 12.4804 15 12.7348 15 13Z"
-          fill="#f52d0a"
-        ></path>{" "}
-        <path
-          d="M16 12V18C16.2652 18 16.5196 17.8946 16.7071 17.7071C16.8946 17.5196 17 17.2652 17 17V13C17 12.7348 16.8946 12.4804 16.7071 12.2929C16.5196 12.1054 16.2652 12 16 12Z"
-          fill="#ee3f3f"
-        ></path>{" "}
       </g>
     </svg>
   );
@@ -223,6 +169,7 @@ function AlgorithmDescription(props) {
   );
 
   const algo = props.sortName;
+  console.log(algo);
 
   const BonusFact = {
     "Bubble Sort":
@@ -233,7 +180,8 @@ function AlgorithmDescription(props) {
       "Insertion Sort 📥 behaves like someone sorting playing cards mid-game — simple, direct, and surprisingly effective for small decks!",
     "Merge Sort":
       "Merge Sort is the OG divide-and-conquer master, inspired by recursion long before it was cool!",
-    "Quick Sort": "Despite its name, Quick Sort can actually be slower than Merge Sort in the worst case.",
+    "Quick Sort":
+      "Despite its name, Quick Sort can actually be slower than Merge Sort in the worst case.",
     "Heap Sort":
       "Heap Sort builds a binary tree party where the biggest guest always leaves first!",
   };
@@ -268,103 +216,149 @@ function AlgorithmDescription(props) {
   };
 
   const timeComplexity = {
-    "Bubble Sort": ["O(n)","O(n*n)","O(n*n)"],
-    "Selection Sort": ["O(n*n)","O(n*n)","O(n*n)"],
-    "Insertion Sort": ["O(n)","O(n*n)","O(n*n)"],
-    "Merge Sort": ["O(n*log(n))","O(n*log(n))","O(n*log(n))"],
-    "Quick Sort": ["O(n*log(n))","O(n*log(n))","O(n*n)"],
-    "Heap Sort": ["O(n*log(n))","O(n*log(n))","O(n*log(n))"],
+    "Bubble Sort": ["O(n)", "O(n*n)", "O(n*n)"],
+    "Selection Sort": ["O(n*n)", "O(n*n)", "O(n*n)"],
+    "Insertion Sort": ["O(n)", "O(n*n)", "O(n*n)"],
+    "Merge Sort": ["O(n*log(n))", "O(n*log(n))", "O(n*log(n))"],
+    "Quick Sort": ["O(n*log(n))", "O(n*log(n))", "O(n*n)"],
+    "Heap Sort": ["O(n*log(n))", "O(n*log(n))", "O(n*log(n))"],
   };
+  
+
+  const [language, setLanguage] = useState("cpp");
 
   return (
-    <section className="info-box" id="AboutUs">
-      <div className="grid">
-        <div className="heading" data-aos="fade-up">
-          Description
-        </div>
-        <div className="flexbox desc-bonus">
-          <div className="description-text" data-aos="fade-up">
-            {Description[props.sortName]}
-          </div>
-          <div className="bonus-fact" data-aos="fade-up">
-            <div>
-              <p
-                style={{
-                  marginBottom: "5px",
-                  fontSize: "x-large",
-                  fontFamily: "var(--buttons)",
-                  color: "orange",
-                }}
-              >
-                <b>Did U Know:</b>
-              </p>
-              <p data-aos="fade-up">{BonusFact[algo]}</p>
-            </div>
-            {bulb}
-          </div>
-        </div>
-        <div
-          className="heading"
-          style={{ marginTop: "25px" }}
-          data-aos="fade-up"
-        >
-          {bullet} CODE
-        </div>
-        <div className="flexbox code-complexity">
-          <div className="codes" data-aos="fade-in">
-            <div className="nav-btns flexbox">
-              <button className="lang-btn cpp-btn" data-aos="fade-up">.Cpp</button>
-              <button className="lang-btn js-btn" data-aos="fade-up">.js</button>
-              <button className="lang-btn java-btn" data-aos="fade-up">.java</button>
-              <button className="lang-btn py-btn" data-aos="fade-up">.py</button>
-            </div>
-            <div className="code" data-aos="fade-down">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui
-              ullam fuga laudantium.
-            </div>
-          </div>
-
-          <div className="complexity grid" data-aos="fade-in">
-            <div className="time-complexity grid">
-              <p className="time" data-aos="slide-right">{clock} Time Complexity :</p>
-              <ul className="grid">
-                <li data-aos="fade-up">
-                  <b>Best Case [1 2 3...] : </b> &nbsp;{timeComplexity[algo][0]}
-                </li>
-                <li data-aos="fade-up">
-                  <b>Average Case [2 3 1...] : </b> &nbsp;{timeComplexity[algo][1]}
-                </li>
-                <li data-aos="fade-up">
-                  <b>Worst Case [3 2 1...] : </b> &nbsp;{timeComplexity[algo][2]}
-                </li>
-              </ul>
-            </div>
-            <div className="space-complexity">
-              <p className="space" data-aos="slide-right">{suitcase} Space Complexity : </p>
-              <li data-aos="fade-up"><b>All Cases : </b>&nbsp;{SpaceComplexity[algo]}</li>
-            </div>
-          </div>
-        </div>
-        <div
-          className="heading"
-          style={{ marginTop: "25px" }}
-          data-aos="fade-up"
-        >
-          {bullet} Practice Questions
-        </div>
-        <ol className="grid question-list">
-          <li data-aos="fade-up">1. &nbsp; Lorem, ipsum.</li>
-          <li data-aos="fade-up">2. &nbsp; Lorem, ipsum.</li>
-          <li data-aos="fade-up">3. &nbsp; Lorem, ipsum.</li>
-          <li data-aos="fade-up">4. &nbsp; Lorem, ipsum.</li>
-          <li data-aos="fade-up">5. &nbsp; Lorem, ipsum.</li>
-          <li data-aos="fade-up">6. &nbsp; Lorem, ipsum.</li>
-          <li data-aos="fade-up">7. &nbsp; Lorem, ipsum.</li>
-          <li data-aos="fade-up">8. &nbsp; Lorem, ipsum.</li>
-          <li data-aos="fade-up">9. &nbsp; Lorem, ipsum.</li>
-          <li data-aos="fade-up">10. &nbsp; Lorem, ipsum.</li>
-        </ol>
+    <section className="info-box grid" id="AboutUs">
+      <div className="heading" data-aos="fade-up">
+        Description
       </div>
+      <div className="flexbox desc-bonus">
+        <div className="description-text" data-aos="fade-up">
+          {Description[algo]}
+        </div>
+        <div className="bonus-fact" data-aos="fade-up">
+          <div>
+            <p
+              style={{
+                marginBottom: "5px",
+                fontSize: "x-large",
+                fontFamily: "var(--buttons)",
+                color: "orange",
+              }}
+            >
+              <b>Did U Know:</b>
+            </p>
+            <p data-aos="fade-up">{BonusFact[algo]}</p>
+          </div>
+        </div>
+      </div>
+      <div className="heading" style={{ marginTop: "25px" }} data-aos="fade-up">
+        {bullet} CODE
+      </div>
+      <div className="flexbox code-complexity">
+        <div className="codes" data-aos="fade-in">
+          <div className="nav-btns flexbox" data-aos="fade-up">
+            <button
+              className={`lang-btn cpp-btn ${
+                language === "cpp" ? "active-btn" : ""
+              }`}
+              id="cpp"
+              onClick={() => {
+                setLanguage("cpp");
+              }}
+            >
+              .cpp
+            </button>
+            <button
+              className={`lang-btn js-btn ${
+                language === "js" ? "active-btn" : ""
+              }`}
+              id="js"
+              onClick={() => {
+                setLanguage("js");
+              }}
+            >
+              .js
+            </button>
+            <button
+              className={`lang-btn java-btn ${
+                language === "java" ? "active-btn" : ""
+              }`}
+              id="java"
+              onClick={() => {
+                setLanguage("java");
+              }}
+            >
+              .java
+            </button>
+            <button
+              className={`lang-btn py-btn ${
+                language === "py" ? "active-btn" : ""
+              }`}
+              id="py"
+              onClick={() => {
+                setLanguage("py");
+              }}
+            >
+              .py
+            </button>
+            <button
+              className={`lang-btn c-btn ${
+                language === "c" ? "active-btn" : ""
+              }`}
+              id="c"
+              onClick={() => {
+                setLanguage("c");
+              }}
+            >
+              .c
+            </button>
+            <input
+              className={`lang-btn custom-btn`}
+              id="custom"
+              onChange={(e) => {
+                setLanguage(e.target.value);
+              }}
+              placeholder="Enter Language..."
+            />
+          </div>
+          <div className="code">
+          <Code algorithm={algo} language={language} login={props.login} islogin={props.islogin}></Code>
+          </div>
+        </div>
+
+        <div className="complexity grid" data-aos="fade-in">
+          <div className="time-complexity grid">
+            <p className="time" data-aos="slide-left">
+              {clock} Time Complexity :
+            </p>
+            <ul className="grid">
+              <li data-aos="fade-up">
+                <b>Best Case [1 2 3...] : </b> &nbsp;{timeComplexity[algo][0]}
+              </li>
+              <li data-aos="fade-up">
+                <b>Average Case [2 3 1...] : </b> &nbsp;
+                {timeComplexity[algo][1]}
+              </li>
+              <li data-aos="fade-up">
+                <b>Worst Case [3 2 1...] : </b> &nbsp;{timeComplexity[algo][2]}
+              </li>
+            </ul>
+          </div>
+          <div className="space-complexity">
+            <p className="space" data-aos="slide-left">
+              {suitcase} Space Complexity :{" "}
+            </p>
+            <li data-aos="fade-up">
+              <b>All Cases : </b>&nbsp;{SpaceComplexity[algo]}
+            </li>
+          </div>
+        </div>
+      </div>
+      <div className="heading" style={{ marginTop: "25px" }} data-aos="fade-up">
+        {bullet} Practice Questions
+      </div>
+      <PracticeQuestions algo={algo} login={props.login} islogin={props.islogin}/>
     </section>
   );
 }

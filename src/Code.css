@@ -1,0 +1,27 @@
+
+.foreground{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0px;
+    font-size: x-large;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background: linear-gradient(to right, rgba(53, 56, 56, 0.422), rgb(184, 185, 185));
+}
+
+.foreground svg{
+    filter: drop-shadow(0px 0px 15px rgb(220, 179, 15));
+}
+
+pre{
+    font-family: var(--code);
+    font-weight: 400;
+    font-size: large;
+    padding: 20px;
+    box-sizing: border-box;
+}
+

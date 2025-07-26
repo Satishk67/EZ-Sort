@@ -23,7 +23,7 @@
 }
 .side-menu-btn{
     font-family: var(--buttons);
-    background-color: var(--bg-color);
+    background-color: var(--navbar-color);
     font-size: x-large;
     padding: 12px;
     margin: 40px auto;
@@ -39,5 +39,3 @@
     box-shadow: 0px 0px 5px var(--text-color);
     letter-spacing: 1px;
 }
-
-

@@ -40,6 +40,7 @@ export async function SelectionSort(arr1, setArr, speed,start) {
       if (arr[j] < arr[minIndex]) {
         minIndex = j;
       }
+      if(start.current) return;
     }
     let temp = arr[i];
     arr[i] = arr[minIndex];
@@ -55,8 +56,11 @@ export async function MergeSort(arr1, setArr, speed,startBtn) {
   async function mergeSortHelper(start, end) {
     if (start >= end) return;
     const mid = Math.floor((start + end) / 2);
+    if(startBtn.current) return;
     await mergeSortHelper(start, mid);
+    if(startBtn.current) return;
     await mergeSortHelper(mid + 1, end);
+    if(startBtn.current) return;
     let merged = [];
     let left = start,
       right = mid + 1;
@@ -66,17 +70,23 @@ export async function MergeSort(arr1, setArr, speed,startBtn) {
       } else {
         merged.push(arr[right++]);
       }
+      if(startBtn.current) return;
     }
     while (left <= mid) merged.push(arr[left++]);
+    if(startBtn.current) return;
     while (right <= end) merged.push(arr[right++]);
+    if(startBtn.current) return;
     for (let i = 0; i < merged.length; i++) {
       arr[start + i] = merged[i];
       setArr([...arr]);
       await new Promise((r) => setTimeout(r, 1000 / speed));
       if(startBtn.current) return;
     }
+    if(startBtn.current) return;
   }
+  if(startBtn.current) return;
   await mergeSortHelper(0, arr.length - 1);
+  if(startBtn.current) return;
 }
 
 export async function QuickSort(arr1, setArr, speed,start) {

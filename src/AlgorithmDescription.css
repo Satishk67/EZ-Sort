@@ -40,15 +40,29 @@
 }
 
 .codes{
-    width: 45vw;
-    height: 70vh;
+    background-color: rgba(75, 71, 71, 0.42);
+    width: 50vw;
     box-shadow: 2px 2px 20px 2px cyan;
     border-radius: 12px;
     border: 3px solid aqua;
+    height: 82vh;
+    overflow-x: wrap;
+    overflow-y: auto;
+}
+
+.codes webkit-scrollbar{
+    width: 10px;
+    color: var(--text-color);
 }
 
 .nav-btns{
+    background-color: var(--bg-color);
     border-bottom: 3px solid var(--text-color);
+    position: sticky;
+    top: 0px;
+    z-index: 1;
+    height: 10%;
+    box-sizing: border-box;
 }
 
 .lang-btn{
@@ -56,14 +70,14 @@
     border-right: 3px solid var(--text-color);
     cursor: pointer;
     transition: all 0.4s ease-in-out;
-    font-size: 25px;
+    font-size: large;
     font-weight: 900;
     text-shadow: 0px 0px 5px black;
     opacity: 0.8;
 }
 
 .lang-btn:hover{
-    opacity: 1;
+    font-size: x-large;
 }
 
 .cpp-btn{
@@ -82,15 +96,42 @@
     color: white;
 }
 
+.c-btn{
+    background-color: rgb(255, 139, 139);
+    color: white;
+}
+
 .py-btn{
     background-color: rgb(50, 150, 255);
     color: white;
 }
 
+.custom-btn{
+    background-color: rgba(50, 251, 124, 0.926);
+    color: rgb(13, 123, 145);
+    font-weight: 600;
+    text-shadow: none;
+    border: none;
+    border-top-right-radius: 10px;
+    cursor: text;
+    font-size: large;
+    width: 100%;
+    padding: 8px 15px;
+    box-sizing: border-box;
+}
+
+.custom-btn:focus{
+    outline: none;
+}
+
+.active-btn{
+    font-size: x-large;
+    opacity: 1;
+}
+
 .code{
-    padding: 20px;
-    font-family: var(--code);
-    font-weight: 400;
+    height: 90%;
+    box-sizing: border-box;
 }
 
 .complexity{
@@ -140,14 +181,5 @@
 }
 
 
-.question-list{
-    margin-left: 35px;
-    row-gap: 10px;
-    font-size: large;
-}
 
-.question-list li{
-    display: flex;
-    column-gap: 10px;
-}
-
+    

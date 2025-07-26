@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import SigninBtn from "./SigninBtn";
 import { useState } from "react";
 function Navbar(props) {
 //   Theme state
@@ -129,7 +130,7 @@ function Navbar(props) {
           <button className="theme-btn" onClick={toggleTheme} id="theme">
             {theme === "light" ? lightlogo : darklogo}
           </button>
-          <button className="login-btn">Login</button>
+          <SigninBtn/>
         </ul>
       </nav>
 
