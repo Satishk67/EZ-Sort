@@ -315,11 +315,13 @@ function AlgorithmDescription(props) {
             </button>
             <input
               className={`lang-btn custom-btn`}
+              type="text"
               id="custom"
               onChange={(e) => {
                 setLanguage(e.target.value);
               }}
               placeholder="Enter Language..."
+              disabled={!props.islogin}
             />
           </div>
           <div className="code">

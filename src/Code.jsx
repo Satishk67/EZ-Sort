@@ -44,7 +44,7 @@ function Code(props) {
 
   if (!props.islogin) {
     return (
-      <div className="foreground">
+      <div className="foreground" data-aos="fade-in">
         <p>{lock}</p>
         <p>For Accessing our Custom Code feature </p>
         <p>

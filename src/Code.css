@@ -9,8 +9,6 @@
     top: 0px;
     font-size: x-large;
     height: 100%;
-    backdrop-filter: blur(5px);
-    background: linear-gradient(to right, rgba(53, 56, 56, 0.422), rgb(184, 185, 185));
 }
 
 .foreground svg{
