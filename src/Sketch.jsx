@@ -1,7 +1,7 @@
 import "./Sketch.css";
 function Sketch(props) {
   const n = props.Size;
-  const rectWidth = (window.innerWidth-8) / n;
+  const rectWidth = (0.84*window.innerWidth) / n;
   const Height = window.innerHeight;
   const arr = props.arr;
 
