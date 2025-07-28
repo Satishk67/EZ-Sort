@@ -1,11 +1,11 @@
 # EzSort: Interactive Sorting Visualizer
 
-EzSort is a modern, interactive React web application for visualizing and comparing classic sorting algorithms. Designed for students, educators, and anyone curious about how sorting works under the hood, EzSort brings algorithms to life with smooth animations and customizable controls.
+EzSort is a modern, interactive React web application for visualizing and comparing classic sorting algorithms. Designed for students, educators, and anyone curious about how sorting works under the hood, EzSort brings algorithms to life with smooth animations, customizable controls and many more features.
 
 ---
 
 ## 🚀 Overview
-EzSort allows you to visualize and step through popular sorting algorithms, including Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort, and Heap Sort. Adjust array size, sorting speed, and colors, and watch how data is sorted in real time.
+EzSort allows you to visualize and step through popular sorting algorithms, including Bubble Sort, Insertion Sort, Selection Sort, Merge Sort, Quick Sort, and Heap Sort. Adjust array size, sorting speed, and colors, and watch how data is sorted in real time.Apart from this we offer you more access than any other app like stopping the visual in real-time and resuming it, also you get real-time code in whichever language you want, alongwith these we also provide you the important question and interview oriented questions for every algorithm. And one more information we give you is that you get to know a unique fact related to every algorithm. These makes our app unique from other apps. 
 
 ---
 
@@ -17,31 +17,13 @@ EzSort allows you to visualize and step through popular sorting algorithms, incl
 - **Responsive UI**: Works on modern desktops and laptops.
 - **Start/Stop Controls**: Pause or restart sorting at any time.
 - **Algorithm Descriptions**: Learn about each algorithm with fun facts and explanations.
+- **Custom Code**: Get code of algithm in your desired language in real-time.
+- **Practice questions**: To practice the algoritm.
 
 ---
 
 ## 🖥️ Demo
 > https://ez-sort.vercel.app/#Home
-
----
-
-## 🛠️ Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/EzSort.git
-   cd EzSort/sortapp
-   ```
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
-4. **Open your browser:**
-   - Visit [http://localhost:5173](http://localhost:5173) (or as indicated in your terminal)
 
 ---
 
@@ -51,37 +33,23 @@ EzSort allows you to visualize and step through popular sorting algorithms, incl
 - **Randomize** the array or enter a custom array.
 - **Click Start** to watch the sorting animation.
 - **Click Stop** to pause the animation at any time.
+### Plus Features
+[ Signup to access these features ]
+- **Get Code** to learn about code of algorithm in your desired language
+- **Practice Questions** get curated resources to learn and practice the algorithm at a place.
 
 ---
 
 ## 🧩 Technologies Used
-- **React** (with hooks)
+- **React.js** 
 - **Vite** (for fast development)
 - **CSS** (custom styling and animations)
-- **JavaScript (ES6+)**
+- **JavaScript**
+- **REST API (Gemini)**
+- **Clerk** (for Authentication)
 
 ---
 
-## 📁 Folder Structure
-```
-sortapp/
-├── public/
-├── src/
-│   ├── AlgorithmDescription.jsx
-│   ├── Details.jsx
-│   ├── Navbar.jsx
-│   ├── Sketch.jsx
-│   ├── Sketch.css
-│   ├── SortingAlgorithms.jsx
-│   ├── SortingHero.jsx
-│   ├── App.jsx
-│   └── ...
-├── package.json
-├── README.md
-└── ...
-```
-
----
 
 ## 🤝 Contributing
 Contributions are welcome! To propose a feature, report a bug, or submit a pull request:
@@ -95,7 +63,7 @@ Contributions are welcome! To propose a feature, report a bug, or submit a pull 
 
 ## 🙏 Credits
 - Developed by Satish Kumar
-- Inspired by poor designed and interactive sorting visualizer projects
+- Inspired by poor designed and less interactive sorting visualizer projects
 
 ---
 
