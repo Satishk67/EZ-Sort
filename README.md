@@ -41,11 +41,12 @@ EzSort allows you to visualize and step through popular sorting algorithms, incl
 ---
 
 ## 🧩 Technologies Used
+- **HTML**
 - **React.js** 
 - **Vite** (for fast development)
 - **CSS** (custom styling and animations)
 - **JavaScript**
-- **REST API (Gemini)**
+- **REST API (OpenRouter)**
 - **Clerk** (for Authentication)
 
 ---
