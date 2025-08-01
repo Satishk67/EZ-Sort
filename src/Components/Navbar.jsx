@@ -1,4 +1,4 @@
-import "./Navbar.css";
+import "../CSSFiles/Navbar.css";
 import SigninBtn from "./SigninBtn";
 import { useState } from "react";
 import Dashboard from "./Dashboard";
@@ -131,7 +131,7 @@ function Navbar(props) {
           <button className="theme-btn" onClick={toggleTheme} id="theme">
             {theme === "light" ? lightlogo : darklogo}
           </button>
-          {(!props.islogin) ? <SigninBtn statefn = {props.login}/> : <Dashboard/>}
+          <SigninBtn statefn = {props.login}/>
         </ul>
       </nav>
 

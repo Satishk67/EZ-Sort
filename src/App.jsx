@@ -1,10 +1,10 @@
 import './App.css'
-import Navbar from './Navbar'
-import Hero from './Hero'
-import Details from './Details'
-import SortingHero from './SortingHero'
-import AlgorithmDescription from './AlgorithmDescription'
-import Contact from './Contact'
+import Navbar from './Components/Navbar'
+import Hero from './Components/Hero'
+import Details from './Components/Details'
+import SortingHero from './Components/SortingHero'
+import AlgorithmDescription from './Components/AlgorithmDescription'
+import Contact from './Components/Contact'
 import { useRef } from 'react'
 import 'aos/dist/aos.css';
 import AOS from 'aos';

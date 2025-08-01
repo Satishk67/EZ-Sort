@@ -1,4 +1,4 @@
-import "./SortingHero.css";
+import "../CSSFiles/SortingHero.css";
 import Sketch from "./Sketch";
 import { useState, useEffect , useRef} from "react";
 import {

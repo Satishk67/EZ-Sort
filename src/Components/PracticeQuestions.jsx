@@ -1,4 +1,4 @@
-import "./PracticeQuestions.css";
+import "../CSSFiles/PracticeQuestions.css";
 import SigninBtn from "./SigninBtn";
 function PracticeQuestions(props) {
   const lock = (

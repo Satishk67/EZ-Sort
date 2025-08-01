@@ -1,6 +1,6 @@
-import "./Hero.css";
-import star from './assets/star_24dp_F19E39_FILL0_wght400_GRAD0_opsz24.svg';
-import animation from "./assets/ForegroundAnimation.mp4";
+import "../CSSFiles/Hero.css";
+import star from '../assets/star.svg';
+import animation from "../assets/ForegroundAnimation.mp4";
 function Hero() {
   return (
     <section className="hero-box flexbox" id="Home">

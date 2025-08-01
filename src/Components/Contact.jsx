@@ -1,4 +1,4 @@
-import "./Contact.css";
+import "../CSSFiles/Contact.css";
 function Contact() {
   return (
     <footer className="grid footer-box" id="Contact">

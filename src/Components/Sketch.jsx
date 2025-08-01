@@ -1,4 +1,4 @@
-import "./Sketch.css";
+import "../CSSFiles/Sketch.css";
 function Sketch(props) {
   const n = props.Size;
   const rectWidth = (0.84*window.innerWidth) / n;

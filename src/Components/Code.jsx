@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SigninBtn from "./SigninBtn";
-import "./Code.css";
+import "../CSSFiles/Code.css";
 
 const API_KEY = "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";
 

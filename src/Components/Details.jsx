@@ -1,4 +1,4 @@
-import "./Details.css";
+import "../CSSFiles/Details.css";
 function Details(props) {
   const bullet = (
     <svg

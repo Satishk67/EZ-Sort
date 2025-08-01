@@ -1,5 +1,5 @@
-import "./AlgorithmDescription.css";
-import "./Details.css";
+import "../CSSFiles/AlgorithmDescription.css";
+import "../CSSFiles/Details.css";
 import Code from "./Code";
 import PracticeQuestions from "./PracticeQuestions";
 import { useState } from "react";
