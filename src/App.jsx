@@ -38,7 +38,7 @@ function App() {
     <>
     <Navbar toggleSidebar={toggleSidebar} sidebarRef={sidebarRef} whichSort={setSortName} login={setlogin} islogin={isLogin}/>
     {!Sort ? <Hero/> : <SortingHero sortName={Sort}/>}
-    {!Sort ? <Details toggleSidebar={toggleSidebar} setSortName={setSortName}/> : <AlgorithmDescription sortName={Sort} login={setlogin} islogin={isLogin}/>}
+    {!Sort ? <Details toggleSidebar={toggleSidebar} setSortName={setSortName}/> : <AlgorithmDescription sortName={Sort} login={setlogin} islogin={isLogin} setlogin={setLogin}/>}
     <Contact/>
     </>
   )

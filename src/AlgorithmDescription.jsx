@@ -325,7 +325,7 @@ function AlgorithmDescription(props) {
             />
           </div>
           <div className="code">
-          <Code algorithm={algo} language={language} login={props.login} islogin={props.islogin}></Code>
+          <Code algorithm={algo} language={language} login={props.login} islogin={props.islogin} stefn={props.setlogin}></Code>
           </div>
         </div>
 
@@ -360,7 +360,7 @@ function AlgorithmDescription(props) {
       <div className="heading" style={{ marginTop: "25px" }} data-aos="fade-up">
         {bullet} Practice Questions
       </div>
-      <PracticeQuestions algo={algo} login={props.login} islogin={props.islogin}/>
+      <PracticeQuestions algo={algo} login={props.login} islogin={props.islogin} stefn={props.setlogin}/>
     </section>
   );
 }

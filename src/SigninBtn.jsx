@@ -1,11 +1,21 @@
-import "./SigninBtn.css"
-function SigninBtn() {
-    const handleClick = {
+import React from 'react';
+import { useUser } from "@clerk/clerk-react";
+import "./SigninBtn.css";
+import { SignInButton } from "@clerk/clerk-react";
 
-    }
-    
+
+function SigninBtn({ statefn }) {
+    const { isSignedIn } = useUser();
+
+    React.useEffect(() => {
+        if (isSignedIn) {
+            statefn();
+        }
+    }, [isSignedIn, statefn]);
+
     return (
-        <button className="login-btn" onClick={handleClick}>Sign In</button>
-    )
+        <SignInButton className="login-btn" mode="redirect" />
+    );
 }
-export default SigninBtn
+
+export default SigninBtn;

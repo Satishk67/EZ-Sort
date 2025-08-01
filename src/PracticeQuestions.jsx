@@ -44,7 +44,7 @@ function PracticeQuestions(props) {
           <p>{lock}</p>
           <p>For Accessing Practice Questions Section. Please Sign In. </p>
           <p>
-            <SigninBtn />
+            <SigninBtn stefn={props.statefn}/>
           </p>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SigninBtn from "./SigninBtn";
 import "./Code.css";
 
-const GEMINI_API_KEY = "AIzaSyCrWN9qdi6sAOdQ_hdQh0yc_lBtO-0ikXo";
+const API_KEY = "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";
 
 function Code(props) {
   
@@ -48,7 +48,7 @@ function Code(props) {
         <p>{lock}</p>
         <p>For Accessing our Custom Code feature </p>
         <p>
-          <SigninBtn />
+          <SigninBtn statefn={props.statefn} />
         </p>
       </div>
     );
@@ -62,65 +62,48 @@ function Code(props) {
     if (!props.algorithm || !props.language) return;
 
     const fetchCode = async () => {
-      setLoading(true);
-      setError(null);
+  setLoading(true);
+  setError(null);
 
-      try {
-        if (!GEMINI_API_KEY) {
-          throw new Error(
-            "Gemini API key not found. Please add REACT_APP_GEMINI_API_KEY to your .env file."
-          );
-        }
+  try {
+    if (!API_KEY) {
+      throw new Error("API key not found. Please add API_KEY to your .env file.");
+    }
 
-        const res = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              contents: [
-                {
-                  parts: [
-                    {
-                      text: `Provide the code for ${algorithm} sorting algorithm from scratch that includes an int main function and a separate function for sorting, along with important comments, in ${language}. Return code lines with proper indentation. Only return the code, no explanations. Also don't provide any button to copy or any action only pure code. Also don't add name of language as heading or anything just write the code. Also, keep all libraries or headers at the top of the code included already if need and include things like namespace std already in top if needed i/o operations. If it is not possible to write in the language given or the language given doesn't support the algorithm then return "Not Valid Language!! Please Try Different Language.`,
-                    },
-                  ],
-                },
-              ],
-            }),
-          }
-        );
+    const promptText = `Provide the code for ${props.algorithm} sorting algorithm from scratch that includes an int main function and a separate function for sorting, along with important comments, in ${props.language}. Return code lines with proper indentation. Only return the code, no explanations. Also don't provide any button to copy or any action only pure code. Also, don't add language name headings or anything else, just the code. Keep all libraries or headers at the top of the code included already, e.g. namespace std for C++. Keep IO operations included if needed. If it's not possible or supported, return "Not Valid Language!! Please Try Different Language."`;
 
-        if (!res.ok) {
-          const errorData = await res.text();
-          throw new Error(`HTTP ${res.status}: ${errorData}`);
-        }
+    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "openai/gpt-3.5-turbo",
+        messages: [{ role: "user", content: promptText }]
+      }),
+    });
 
-        const data = await res.json();
-        // Access the text content
-        const content = data.candidates?.[0]?.content?.parts?.[0]?.text;
-        if (!content) throw new Error("No content in API response");
+    if (!res.ok) {
+      const errorData = await res.text();
+      throw new Error(`HTTP ${res.status}: ${errorData}`);
+    }
 
-        // Clean the response by removing markdown code block markers
-        let cleanedContent = content;
-        // Remove opening code block markers like ```java, ```cpp, ```python, etc.
-        cleanedContent = cleanedContent.replace(/```\w*\n?/gm, "");
-        // Remove closing code block markers (handle multiple variations)
-        cleanedContent = cleanedContent.replace(/\n?```\s*$/gm, "");
-        cleanedContent = cleanedContent.replace(/```\s*$/gm, "");
-        // Remove any remaining ``` that might be at the end
-        cleanedContent = cleanedContent.replace(/```/g, "");
-        // Trim any extra whitespace
-        cleanedContent = cleanedContent.trim();
+    const data = await res.json();
+    const content = data.choices?.[0]?.message?.content;
+    if (!content) throw new Error("No content in API response");
 
-        setCodeSnippet(cleanedContent);
-      } catch (e) {
-        setError(e.message);
-        console.error("Error fetching code:", e);
-      } finally {
-        setLoading(false);
-      }
-    };
+    // Clean content if contains code blocks markdown
+    const cleanedContent = content.replace(/``````/g, "").trim();
+
+    setCodeSnippet(cleanedContent);
+  } catch (e) {
+    setError(e.message);
+    console.error("Error fetching code:", e);
+  } finally {
+    setLoading(false);
+  }
+};
 
     fetchCode();
   }, [props.algorithm, props.language]);

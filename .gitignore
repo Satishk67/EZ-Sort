@@ -29,3 +29,14 @@ dist-ssr
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Ignore assets folder
+assets/
+public/assets/
+src/assets/
+
+# Ignore environment variable files
+.env
+.env.local
+.env.development
+.env.production
