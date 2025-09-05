@@ -132,6 +132,12 @@
 .code{
     height: 90%;
     box-sizing: border-box;
+    background-color: black;
+    text-wrap: wrap;
+    overflow: auto;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    scrollbar-color: rgb(255, 255, 255) black;
 }
 
 .complexity{

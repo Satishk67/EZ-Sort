@@ -257,7 +257,7 @@ function AlgorithmDescription(props) {
       </div>
       <div className="flexbox code-complexity">
         <div className="codes" data-aos="fade-in">
-          <div className="nav-btns flexbox" data-aos="fade-up">
+          <div className="nav-btns flexbox">
             <button
               className={`lang-btn cpp-btn ${
                 language === "cpp" ? "active-btn" : ""
@@ -317,7 +317,7 @@ function AlgorithmDescription(props) {
               className={`lang-btn custom-btn`}
               type="text"
               id="custom"
-              onChange={(e) => {
+              onKeyDown={(e) => {
                 setLanguage(e.target.value);
               }}
               placeholder="Enter Language..."

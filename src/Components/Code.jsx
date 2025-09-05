@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import SigninBtn from "./SigninBtn";
 import "../CSSFiles/Code.css";
 
-const API_KEY = "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";
+const API_KEY = import.meta.env.VITE_GROQ_API_KEY;
 
 function Code(props) {
-  
   const lock = (
     <svg
       width="78px"
@@ -62,56 +61,57 @@ function Code(props) {
     if (!props.algorithm || !props.language) return;
 
     const fetchCode = async () => {
-  setLoading(true);
-  setError(null);
+      setLoading(true);
+      setError(null);
 
-  try {
-    if (!API_KEY) {
-      throw new Error("API key not found. Please add API_KEY to your .env file.");
-    }
+      try {
+        if (!API_KEY) {
+          throw new Error(
+            "API key not found. Please add API_KEY to your .env file."
+          );
+        }
 
-    const promptText = `Provide the code for ${props.algorithm} sorting algorithm from scratch that includes an int main function and a separate function for sorting, along with important comments, in ${props.language}. Return code lines with proper indentation. Only return the code, no explanations. Also don't provide any button to copy or any action only pure code. Also, don't add language name headings or anything else, just the code. Keep all libraries or headers at the top of the code included already, e.g. namespace std for C++. Keep IO operations included if needed. If it's not possible or supported, return "Not Valid Language!! Please Try Different Language."`;
+        const promptText = `Provide the code for ${props.algorithm} sorting algorithm from scratch, there should be a separate function for sorting, with no comments or bash symbol, in ${props.language}. Return code lines with proper indentation. Only return the code, no explanations. Also don't provide any button to copy or any action only pure code. Also, don't add language name headings or anything else, just the code. Keep all libraries or headers at the top of the code included already, e.g. namespace std for C++. Keep IO operations included if needed. If ${props.language} is not a valid programming language e.g. english, hindi, etc.. or any random word in which we can write sorting algirithm, return "Not Valid Language!! Please Try Different Language." only return this line but in english always. Note: english is not a valid programming language.`;
 
-    const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${API_KEY}`
-      },
-      body: JSON.stringify({
-        model: "openai/gpt-3.5-turbo",
-        messages: [{ role: "user", content: promptText }]
-      }),
-    });
+        const endpoint = `https://api.groq.com/openai/v1/chat/completions`;
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${API_KEY}`,
+          },
+          body: JSON.stringify({
+            model: "llama-3.3-70b-versatile",
+            messages: [
+              { role: "system", content: "You are a helpful assistant." },
+              { role: "user", content: promptText },
+            ],
+          }),
+        });
 
-    if (!res.ok) {
-      const errorData = await res.text();
-      throw new Error(`HTTP ${res.status}: ${errorData}`);
-    }
+        if (!res.ok) {
+          const errorData = await res.text();
+          throw new Error(`HTTP ${res.status}: ${errorData}`);
+        }
 
-    const data = await res.json();
-    const content = data.choices?.[0]?.message?.content;
-    if (!content) throw new Error("No content in API response");
-
-    // Clean content if contains code blocks markdown
-    const cleanedContent = content.replace(/``````/g, "").trim();
-
-    setCodeSnippet(cleanedContent);
-  } catch (e) {
-    setError(e.message);
-    console.error("Error fetching code:", e);
-  } finally {
-    setLoading(false);
-  }
-};
-
+        const data = await res.json();
+        const content = data?.choices[0]?.message?.content || "";
+        if (!content) throw new Error("No content in API response");
+        setCodeSnippet(content.trim());
+      } catch (e) {
+        setError(e.message);
+        console.error("Error fetching code:", e);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchCode();
   }, [props.algorithm, props.language]);
 
   if (error) {
     return (
       <pre>
-        <div className="error-message">
+        <div className="error-message" data-aos="fade-in">
           <p>
             <b>Error:</b>
           </p>
@@ -124,7 +124,7 @@ function Code(props) {
 
   if (loading) {
     return (
-      <div className="code-container">
+      <div className="code-container" data-aos="fade-in">
         <div className="loading-spinner">
           <div className="spinner"></div>
           <p>Generating {props.algorithm} code for you...</p>

@@ -18,6 +18,7 @@
 pre{
     font-family: var(--code);
     font-weight: 400;
+    color: rgba(240, 246, 52, 0.836);
     font-size: large;
     padding: 20px;
     box-sizing: border-box;

@@ -8,9 +8,7 @@ const myClerkKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 console.log("Clerk Key:", myClerkKey);
 if(!myClerkKey) throw new Error("Clerk Key not found");
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
   <ClerkProvider publishableKey={myClerkKey}>
     <App />
   </ClerkProvider>
-  </StrictMode>,
 )
