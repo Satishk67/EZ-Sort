@@ -1,6 +1,6 @@
 # EZ Sort
 
-EZ Sort is an interactive web application designed to help users learn, visualize, and practice various sorting algorithms. The platform provides algorithm descriptions, code samples, practice questions, and user authentication for personalized features.
+EZ Sort is an interactive GenAi web application designed to help users learn, visualize, and practice various sorting algorithms. The platform provides algorithm descriptions, code samples, practice questions, and user authentication for personalized features.
 
 ## Features
 
